@@ -30,8 +30,6 @@ android {
 dependencies {
     implementation kotlin
 
-    implementation firebaseCore
-
     implementation koinScope
     implementation koinBase
     implementation koinViewModel
@@ -49,6 +47,7 @@ dependencies {
     implementation recycler_view
 
     implementation materialDialogs
+    implementation materialDialogsLifeCycle
 
     implementation androidKtx
 

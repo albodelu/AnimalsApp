@@ -1,5 +1,6 @@
 package com.alorma.animals.onboarding.presentation
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -23,5 +24,9 @@ class OnBoardingViewModel(
             val formFields = formRepository.getFormFields()
             _formValuesLiveData.postValue(formFields)
         }
+    }
+
+    fun onTypeSelected(selectedType: FormField.IdValue) {
+        Log.i("alorma-selectedtype", "SelectedType: $selectedType")
     }
 }

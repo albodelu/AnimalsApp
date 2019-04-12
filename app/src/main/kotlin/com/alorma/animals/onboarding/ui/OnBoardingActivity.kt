@@ -2,7 +2,9 @@ package com.alorma.animals.onboarding.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import com.alorma.animals.R
+import com.alorma.animals.onboarding.presentation.OnBoardingStep
 import com.alorma.animals.onboarding.presentation.OnBoardingViewModel
 import com.alorma.animals.onboarding.presentation.loadOnBoardingModule
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -20,12 +22,31 @@ class OnBoardingActivity : AppCompatActivity() {
 
         loadOnBoardingModule()
 
+        onBoardingViewModel.step.observe(this, Observer {
+            it?.let { onStep(it) }
+        })
+
         onBoardingViewModel.onInit()
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.container, OnBoardingAnimalTypeFragment().apply {
                 onSelectedTypeListener = onBoardingViewModel::onSelectType
             })
+            .commit()
+    }
+
+    private fun onStep(it: OnBoardingStep) {
+        val fragment = when(it) {
+            OnBoardingStep.Name -> OnBoardingAnimalNameFragment().apply {
+                onNameListener = onBoardingViewModel::onName
+            }
+            OnBoardingStep.Type -> OnBoardingAnimalTypeFragment().apply {
+                onSelectedTypeListener = onBoardingViewModel::onSelectType
+            }
+        }
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.container, fragment)
             .commit()
     }
 }

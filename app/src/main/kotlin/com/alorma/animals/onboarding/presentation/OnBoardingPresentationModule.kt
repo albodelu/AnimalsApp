@@ -13,7 +13,7 @@ fun loadOnBoardingModule() {
     loadKoinModules(coreModule, dataModule, domainModule, onBoardingPresentationModule)
 }
 
-val onBoardingPresentationModule = module {
+val onBoardingPresentationModule = module(override = true) {
     viewModel { (activity: Activity) ->
         val navigator = Navigator.ActivityNavigator(activity)
         OnBoardingViewModel(navigator)

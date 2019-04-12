@@ -8,11 +8,11 @@ import org.koin.core.context.loadKoinModules
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
-fun loadOnBoardingSelectTypeModule() {
-    loadKoinModules(coreModule, dataModule, domainModule, onBoardingSelectTypePresentationModule)
+fun loadOnBoardingNameModule() {
+    loadKoinModules(coreModule, dataModule, domainModule, onBoardingNamePresentationModule)
 }
 
-val onBoardingSelectTypePresentationModule = module(override = true) {
+val onBoardingNamePresentationModule = module(override = true) {
     viewModel {
         SelectTypeViewModel(get(named("create_animal")))
     }

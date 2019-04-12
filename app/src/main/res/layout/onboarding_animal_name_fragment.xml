@@ -13,16 +13,27 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_margin="16dp"
-            android:id="@+id/animalTypeInput"
-            android:hint="@string/animal_type_hint">
+            android:id="@+id/animalNameInput"
+            android:hint="@string/animal_name_hint">
 
-        <com.alorma.animals.widget.ReadOnlyEditText
+        <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/animalType"
-                android:drawableTint="?colorPrimary"
+                android:id="@+id/animalName"
         />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:id="@+id/animalNameButton"
+            app:layout_constraintTop_toBottomOf="@id/animalNameInput"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/onboarding_animal_name_button"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+    />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

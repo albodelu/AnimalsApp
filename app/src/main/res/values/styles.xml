@@ -8,6 +8,7 @@
         <item name="shapeAppearanceSmallComponent">@style/Shape.Small</item>
         <item name="shapeAppearanceMediumComponent">@style/Shape.Medium</item>
         <item name="shapeAppearanceLargeComponent">@style/Shape.Large</item>
+        <item name="textInputStyle">@style/TextInputStyle</item>
     </style>
 
     <style name="FabStyle" parent="Widget.MaterialComponents.FloatingActionButton">
@@ -31,5 +32,7 @@
     <style name="Shape.Large" parent="ShapeAppearance.MaterialComponents.LargeComponent">
         <item name="cornerFamily">cut</item>
     </style>
+
+    <style name="TextInputStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox" />
 
 </resources>

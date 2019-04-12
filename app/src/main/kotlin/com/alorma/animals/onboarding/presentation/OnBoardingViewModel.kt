@@ -1,8 +1,6 @@
 package com.alorma.animals.onboarding.presentation
 
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.alorma.animals.domain.FormRepository
@@ -15,18 +13,22 @@ class OnBoardingViewModel(
     navigator: Navigator.ActivityNavigator
 ) : ViewModel() {
 
-    private val _formValuesLiveData: MutableLiveData<List<FormField>> = MutableLiveData()
-    val formValues: LiveData<List<FormField>>
-        get() = _formValuesLiveData
+    private lateinit var formFields: List<FormField>
 
     fun onInit() {
         viewModelScope.launch {
-            val formFields = formRepository.getFormFields()
-            _formValuesLiveData.postValue(formFields)
+            formFields = formRepository.getFormFields()
         }
     }
 
     fun onTypeSelected(selectedType: FormField.IdValue) {
         Log.i("alorma-selectedtype", "SelectedType: $selectedType")
+    }
+
+    fun onTypeClick(block: (it: FormField.Selector) -> Unit) {
+        formFields.filterIsInstance(FormField.Selector::class.java)
+            .firstOrNull { it.id == "type" }?.let {
+                block(it)
+            }
     }
 }

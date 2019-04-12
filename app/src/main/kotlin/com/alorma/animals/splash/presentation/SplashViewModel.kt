@@ -5,7 +5,6 @@ import androidx.lifecycle.viewModelScope
 import com.alorma.animals.domain.AppRepository
 import com.alorma.animals.navigation.NavigationOptions
 import com.alorma.animals.navigation.Navigator
-import com.alorma.animals.navigation.commands.dashboardCommand
 import com.alorma.animals.navigation.commands.onBordingCommand
 import kotlinx.coroutines.launch
 
@@ -18,11 +17,7 @@ class SplashViewModel(
         viewModelScope.launch {
             val isOnBoardingDone = appRepository.isOnBoardingDone()
 
-            val command = if (isOnBoardingDone.not()) {
-                onBordingCommand()
-            } else {
-                dashboardCommand()
-            }
+            val command = onBordingCommand()
 
             navigator.navigate(command, NavigationOptions.WithFinish)
         }

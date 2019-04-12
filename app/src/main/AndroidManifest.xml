@@ -29,7 +29,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".onboarding.OnBoardingActivity">
+        <activity android:name=".onboarding.ui.OnBoardingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
 

@@ -5,7 +5,9 @@ import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
 val domainModule = module(override = true) {
-    factory<AppRepository>{ AppRepositoryImpl(get()) }
+    factory<AppRepository> { AppRepositoryImpl(get()) }
 
-    factory<FormRepository>(named("create_animal")){ CreateAnimalFormRepository() }
+    factory<FormRepository>(named("create_animal")) {
+        CreateAnimalFormRepository(get())
+    }
 }

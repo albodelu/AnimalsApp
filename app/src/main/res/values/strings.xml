@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Animals</string>
+
+    <string name="animal_type_dog">Dog</string>
+    <string name="animal_type_cat">Cat</string>
+    <string name="animal_type_other">Other</string>
 </resources>

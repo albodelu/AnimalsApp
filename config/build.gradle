@@ -1,0 +1,9 @@
+ext {
+    appApplicationId = "com.alorma.animals"
+    applicationVersionCode = 1
+    applicationVersionName = "1.0.0"
+    androidCompileSdkVersion = 28
+    androidTargetSdkVersion = 28
+    androidMinimumSdkVersion = 21
+    androidBuildToolsVersion = "28.0.2"
+}

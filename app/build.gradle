@@ -1,0 +1,56 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply from: "${rootDir}/config/dependencies.gradle"
+
+android {
+    compileSdkVersion androidCompileSdkVersion
+    defaultConfig {
+        applicationId appApplicationId
+        minSdkVersion androidMinimumSdkVersion
+        targetSdkVersion androidTargetSdkVersion
+        versionCode applicationVersionCode
+        versionName applicationVersionName
+    }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+    buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation kotlin
+
+    implementation firebaseCore
+
+    implementation koinScope
+    implementation koinBase
+    implementation koinViewModel
+
+    implementation coroutines_core
+    implementation coroutines_common
+    implementation coroutines_android
+
+    implementation viewModelKtx
+    implementation lifecycleExtensions
+
+    implementation appCompat
+    implementation materialDesign
+    implementation constraint_layout
+    implementation recycler_view
+
+    implementation materialDialogs
+
+    implementation androidKtx
+
+    kapt lifecycleCompiler
+}

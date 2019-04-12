@@ -1,0 +1,84 @@
+ext {
+    android_ktx = "1.1.0-alpha05"
+    assertK_version = "0.12"
+    constraint_version = "2.0.0-alpha3"
+    recyclerview_support = "1.1.0-alpha03"
+    appCompat_X_version = "1.1.0-alpha03"
+    coroutines_version = "1.1.1"
+    diagonal_layout_version = "1.1.1"
+    firbase_version = "16.0.6"
+    firebase_auth_version = "16.1.0"
+    firebase_ui_auth_version = "4.3.1"
+    firebase_messaging_version = "17.3.4"
+    firebase_storage_version = "16.0.5"
+    gson_version = "2.8.5"
+    google_location_version = "16.0.0"
+    retrofit_version = "2.5.1-SNAPSHOT"
+    okHttp_version = "3.12.1"
+    google_maps_version = "16.0.0"
+    gander_version = "1.4.0"
+    glideVersion = "4.8.0"
+    materialVersion = "1.1.0-alpha04"
+    koinVersion = "2.0.0-rc-2"
+    play_services_auth = "16.0.1"
+    workmanager_version = "1.0.0-beta03"
+    materialDialogsVersion = "2.3.0"
+
+    viewModelVersion = "2.1.0-alpha02"
+
+    jUnit_version = "4.13-beta-1"
+
+    assertK = "com.willowtreeapps.assertk:assertk-jvm:${assertK_version}"
+
+    kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlin_version}"
+
+    appCompat = "androidx.appcompat:appcompat:${appCompat_X_version}"
+    androidKtx = "androidx.core:core-ktx:${android_ktx}"
+    constraint_layout = "androidx.constraintlayout:constraintlayout:${constraint_version}"
+    coroutines_core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${coroutines_version}"
+    coroutines_common = "org.jetbrains.kotlinx:kotlinx-coroutines-core-common:${coroutines_version}"
+    coroutines_android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${coroutines_version}"
+    diagonalLayout = "com.github.florent37:diagonallayout:${diagonal_layout_version}"
+
+    viewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:${viewModelVersion}"
+    lifecycleExtensions = "androidx.lifecycle:lifecycle-extensions:${viewModelVersion}"
+    lifecycleCompiler = "androidx.lifecycle:lifecycle-compiler:${viewModelVersion}"
+
+    firebaseCore = "com.google.firebase:firebase-core:${firbase_version}"
+    firebaseAuth = "com.google.firebase:firebase-auth:${firebase_auth_version}"
+    firebaseAuthUi = "com.firebaseui:firebase-ui-auth:${firebase_ui_auth_version}"
+    firebaseMessasging = "com.google.firebase:firebase-messaging:${firebase_messaging_version}"
+    firebaseStorage = "com.google.firebase:firebase-storage:${firebase_storage_version}"
+    playServicesAuth = "com.google.android.gms:play-services-auth:${play_services_auth}"
+
+    glide = "com.github.bumptech.glide:glide:${glideVersion}"
+    glideProcessor = "com.github.bumptech.glide:compiler:${glideVersion}"
+    materialDialogs = "com.afollestad.material-dialogs:core:${materialDialogsVersion}"
+    materialDialogsInput = "com.afollestad.material-dialogs:input:${materialDialogsVersion}"
+    materialDialogsColor = "com.afollestad.material-dialogs:color:${materialDialogsVersion}"
+
+    google_maps = "com.google.android.gms:play-services-maps:${google_maps_version}"
+    googleLocation = "com.google.android.gms:play-services-location:${google_location_version}"
+
+    gson = "com.google.code.gson:gson:${gson_version}"
+
+    materialDesign = "com.google.android.material:material:$materialVersion"
+
+    recycler_view = "androidx.recyclerview:recyclerview:${recyclerview_support}"
+
+    retrofit = "com.squareup.retrofit2:retrofit:${retrofit_version}"
+    retrofitGson = "com.squareup.retrofit2:converter-gson:${retrofit_version}"
+    okHttp = "com.squareup.okhttp3:okhttp:${okHttp_version}"
+    okHttpInterceptor = "com.squareup.okhttp3:logging-interceptor:${okHttp_version}"
+
+    gander = "com.ashokvarma.android:gander:${gander_version}"
+    ganderNoOp = "com.ashokvarma.android:gander-no-op:${gander_version}"
+
+    jUnit = "junit:junit:${jUnit_version}"
+
+    koinBase = "org.koin:koin-android:${koinVersion}"
+    koinScope = "org.koin:koin-androidx-scope:${koinVersion}"
+    koinViewModel = "org.koin:koin-androidx-viewmodel:${koinVersion}"
+
+    workManager = "android.arch.work:work-runtime-ktx:$workmanager_version"
+}

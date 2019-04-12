@@ -8,4 +8,5 @@
     <string name="animal_type_hint">Select type</string>
     <string name="animal_name_hint">Pet name</string>
     <string name="onboarding_animal_name_button">GO!</string>
+    <string name="onboarding_animal_name_title">%1$s, what a great name!</string>
 </resources>

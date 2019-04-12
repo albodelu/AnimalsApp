@@ -36,13 +36,14 @@ class OnBoardingActivity : AppCompatActivity() {
     }
 
     private fun onStep(it: OnBoardingStep) {
-        val fragment = when(it) {
+        val fragment = when (it) {
             OnBoardingStep.Name -> OnBoardingAnimalNameFragment().apply {
                 onNameListener = onBoardingViewModel::onName
             }
-            OnBoardingStep.Type -> OnBoardingAnimalTypeFragment().apply {
-                onSelectedTypeListener = onBoardingViewModel::onSelectType
-            }
+            is OnBoardingStep.Type -> OnBoardingAnimalTypeFragment.newInstance(it.name)
+                .apply {
+                    onSelectedTypeListener = onBoardingViewModel::onSelectType
+                }
         }
 
         supportFragmentManager.beginTransaction()

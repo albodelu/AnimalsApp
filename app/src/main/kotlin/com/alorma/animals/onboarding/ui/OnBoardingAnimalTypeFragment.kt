@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.lifecycle.lifecycleOwner
@@ -18,7 +19,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class OnBoardingAnimalTypeFragment : Fragment() {
 
-    lateinit var onSelectedTypeListener : (FormField.IdValue) -> Unit
+    lateinit var onSelectedTypeListener: (FormField.IdValue) -> Unit
 
     private val selectTypeViewModel: SelectTypeViewModel by viewModel()
 
@@ -34,6 +35,12 @@ class OnBoardingAnimalTypeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+        arguments?.getString(EXTRA_NAME)?.let { name ->
+            val title = getString(R.string.onboarding_animal_name_title, name)
+            animalNameTitle.text = title
+        }
 
         animalType.onActionListener = {
             selectTypeViewModel.onRequest {
@@ -56,6 +63,14 @@ class OnBoardingAnimalTypeFragment : Fragment() {
             listItemsSingleChoice(items = names) { _, index, _ ->
                 block(values[index])
             }
+        }
+    }
+
+    companion object {
+        private const val EXTRA_NAME = "extra_name"
+
+        fun newInstance(name: String) = OnBoardingAnimalTypeFragment().apply {
+            arguments = bundleOf(EXTRA_NAME to name)
         }
     }
 }

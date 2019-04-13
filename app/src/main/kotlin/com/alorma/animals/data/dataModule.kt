@@ -1,24 +1,26 @@
 package com.alorma.animals.data
 
-import com.alorma.animals.data.datasource.AnimalDao
+import androidx.room.Room
 import com.alorma.animals.data.datasource.AnimalDbMapper
-import com.alorma.animals.data.datasource.CreateAnimalDaoModel
 import com.alorma.animals.data.datasource.RoomAnimalDataSource
+import com.alorma.animals.data.db.AppDatabase
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
 val dataModule = module(override = true) {
-    factory { AppConfigDataSource(androidContext()) }
-
     factory { RoomAnimalDataSource(get(), get()) }
 
     factory { AnimalDbMapper(get()) }
 
-    factory<AnimalDao> {
-        object : AnimalDao {
-            override suspend fun insert(createAnimalDaoModel: CreateAnimalDaoModel) {
+    factory {
+        get<AppDatabase>().animalDao()
+    }
 
-            }
-        }
+    single {
+        Room.databaseBuilder(
+            androidContext(),
+            AppDatabase::class.java,
+            "animals-database"
+        ).build()
     }
 }

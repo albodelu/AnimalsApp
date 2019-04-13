@@ -8,5 +8,6 @@ class AnimalRepositoryImpl(
     private val animalDataSource: RoomAnimalDataSource
 ) : AnimalRepository {
 
+    override suspend fun hasAnimals(): Boolean = animalDataSource.getAnimals().isNotEmpty()
     override suspend fun addAnimal(createAnimal: CreateAnimal) = animalDataSource.addAnimal(createAnimal)
 }

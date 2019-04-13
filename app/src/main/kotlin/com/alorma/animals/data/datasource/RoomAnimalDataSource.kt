@@ -9,6 +9,12 @@ class RoomAnimalDataSource(
     private val animalDao: AnimalDao
 ) {
 
+    suspend fun getAnimals() = withContext(Dispatchers.IO) {
+        animalDao.getAll().map {
+            animalDbMapper.mapAnimal(it)
+        }
+    }
+
     suspend fun addAnimal(createAnimal: CreateAnimal) = withContext(Dispatchers.IO) {
         val animal = animalDbMapper.mapCreateAnimal(createAnimal)
         animalDao.insert(animal)

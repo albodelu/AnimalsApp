@@ -4,10 +4,10 @@ import android.net.Uri
 import com.alorma.animals.navigation.Command
 import com.alorma.animals.navigation.DEFAULT_SCHEMA
 
-val dashboardCommand: () -> Command = {
+val animalsListCommand: () -> Command = {
     val uri = Uri.Builder()
         .scheme(DEFAULT_SCHEMA)
-        .authority("dashboard")
+        .authority("animalslist")
         .build()
 
     Command(uri)

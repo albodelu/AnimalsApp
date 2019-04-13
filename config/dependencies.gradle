@@ -24,6 +24,9 @@ ext {
     workmanager_version = "1.0.0-beta03"
     materialDialogsVersion = "2.7.0"
 
+    room_version = "2.1.0-alpha06"
+
+
     viewModelVersion = "2.1.0-alpha02"
 
     jUnit_version = "4.13-beta-1"
@@ -58,8 +61,10 @@ ext {
     materialDialogsColor = "com.afollestad.material-dialogs:color:${materialDialogsVersion}"
     materialDialogsLifeCycle = "com.afollestad.material-dialogs:lifecycle:${materialDialogsVersion}"
 
-    google_maps = "com.google.android.gms:play-services-maps:${google_maps_version}"
-    googleLocation = "com.google.android.gms:play-services-location:${google_location_version}"
+    room = "androidx.room:room-runtime:$room_version"
+    roomProcessor = "androidx.room:room-compiler:$room_version"
+    roomKotlin = "androidx.room:room-ktx:$room_version"
+
 
     gson = "com.google.code.gson:gson:${gson_version}"
 

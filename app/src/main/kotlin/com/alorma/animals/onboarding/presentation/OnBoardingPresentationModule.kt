@@ -16,6 +16,6 @@ fun loadOnBoardingModule() {
 val onBoardingPresentationModule = module(override = true) {
     viewModel { (activity: Activity) ->
         val navigator = Navigator.ActivityNavigator(activity)
-        OnBoardingViewModel(navigator)
+        OnBoardingViewModel(navigator, get())
     }
 }

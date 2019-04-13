@@ -41,6 +41,10 @@ dependencies {
     implementation viewModelKtx
     implementation lifecycleExtensions
 
+    implementation room
+    implementation roomKotlin
+    kapt roomProcessor
+
     implementation appCompat
     implementation materialDesign
     implementation constraint_layout

@@ -1,8 +1,10 @@
 package com.alorma.animals.animalslist.presentation
 
-import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.alorma.animals.animalslist.presentation.model.AnimalViewModel
 import com.alorma.animals.domain.AnimalFormRepository
 import com.alorma.animals.domain.AnimalsRepository
 import kotlinx.coroutines.launch
@@ -11,7 +13,11 @@ class AnimalsListViewModel(
     private val animalsRepository: AnimalsRepository,
     private val animalFormRepository: AnimalFormRepository,
     private val mapper: AnimalsViewModelMapper
-): ViewModel() {
+) : ViewModel() {
+
+    private val _animalsLiveData: MutableLiveData<List<AnimalViewModel>> = MutableLiveData()
+    val animals: LiveData<List<AnimalViewModel>>
+        get() = _animalsLiveData
 
     fun onInit() {
         viewModelScope.launch {
@@ -19,10 +25,7 @@ class AnimalsListViewModel(
             val formFields = animalFormRepository.getAnimalTypeFormFields()
             val viewModels = mapper.map(animals, formFields)
 
-            Log.i("Alorma", "Animals:")
-            viewModels.forEach {
-                Log.i("Alorma", it.toString())
-            }
+            _animalsLiveData.postValue(viewModels)
         }
     }
 }

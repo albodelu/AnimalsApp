@@ -65,7 +65,6 @@ ext {
     roomProcessor = "androidx.room:room-compiler:$room_version"
     roomKotlin = "androidx.room:room-ktx:$room_version"
 
-
     gson = "com.google.code.gson:gson:${gson_version}"
 
     materialDesign = "com.google.android.material:material:$materialVersion"

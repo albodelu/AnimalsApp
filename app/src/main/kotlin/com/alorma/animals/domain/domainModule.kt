@@ -13,5 +13,5 @@ val domainModule = module(override = true) {
         CreateAnimalFormRepository(get())
     }
 
-    factory<AnimalRepository> { AnimalRepositoryImpl() }
+    factory<AnimalRepository> { AnimalRepositoryImpl(get()) }
 }
